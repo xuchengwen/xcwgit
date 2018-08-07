@@ -1,0 +1,75 @@
+server:
+  port: 12001
+spring:
+  datasource:
+    multi: false
+#    url: "jdbc:oracle:thin:@10.20.1.234:1521:orcl"
+#    username: "yyzctest"
+#    password: "yyzctest"
+    url: "jdbc:oracle:thin:@127.0.0.1:1521:xe"
+    username: "xcw"
+    password: "xcw"
+    driverClassName: "oracle.jdbc.OracleDriver"
+    testOnBorrow: true
+    testWhileIdle: true
+    validationQuery: ALTER SESSION SET NLS_TIMESTAMP_FORMAT='YYYY-MM-DD HH24:MI:SS.ff3'
+#  test:
+#    datasource:
+#      multi: false
+##      url: "jdbc:oracle:thin:@10.20.1.234:1521:orcl"
+##      username: "yyzctest"
+##      password: "yyzctest"
+#      url: "jdbc:oracle:thin:@127.0.0.1:11521:xe"
+#      username: "wangqi"
+#      password: "wangqi"
+#      driver-class-name: "oracle.jdbc.OracleDriver"
+egoo:
+  datasource:
+    t1:
+#      url: "jdbc:oracle:thin:@10.20.1.234:1521:orcl"
+#      username: "yyzctest"
+#      password: "yyzctest"
+      url: "jdbc:oracle:thin:@127.0.0.1:11521:xe"
+      username: "wangqi"
+      password: "wangqi"
+      driver-class-name: "oracle.jdbc.OracleDriver"
+    t2:
+#      url: "jdbc:oracle:thin:@10.20.1.234:1521:orcl"
+#      username: "yyzctest"
+#      password: "yyzctest"
+      url: "jdbc:oracle:thin:@127.0.0.1:11521:xe"
+      username: "wangqi"
+      password: "wangqi"
+      driver-class-name: "oracle.jdbc.OracleDriver"
+  redis:
+    redis-type: single
+    hostname: "127.0.0.1"
+    port: 6379
+    dbid: 14
+    password: "yyzc"
+    timeout: 0
+    addrlist: ""
+    client-name: egoo
+
+#mybatis
+mybatis:
+  mapperLocations: "classpath*:mapper/*.xml"
+  type-aliases-package: com.egoonet.devtools.springstarter.iam.entity
+
+#pagehelper
+pagehelper:
+  helperDialect: oracle
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+iam:
+  # 系统编码
+  systemCode: "iam"
+  # 是否有审批流程
+  isAudit: true
+
+#访问时可以不输入密码
+management:
+  security:
+    enabled: false
